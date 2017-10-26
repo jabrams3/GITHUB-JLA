@@ -1,0 +1,50 @@
+declare
+ lv_name  VARCHAR2(15);
+
+begin
+  lv_name := 'Jennifer';
+  DBMS_OUTPUT.PUT_LINE('Hello, '||lv_name|| '!');
+end;
+
+
+declare
+ lv_name  VARCHAR2(15);
+
+begin
+  lv_name := '&firstname';
+  DBMS_OUTPUT.PUT_LINE('Hello, '||lv_name|| '!');
+end;
+
+
+
+/* Inserts a record into the SWRIDEN table*/
+--desc swriden;
+declare
+lv_pidm  swriden.swriden_pidm%type :=3333;
+lv_id    swriden.swriden_id%type :='123'; 
+lv_last_name swriden.swriden_last_name%type :='Abrams';
+lv_first_name swriden.swriden_first_name%type :='Jennifer';
+lv_activity_date swriden.swriden_activity_date%type;
+
+begin
+  insert into swriden values(lv_pidm,lv_id,lv_last_name,lv_first_name,null,null,sysdate,null,null);
+
+end;
+/
+select * from swriden;
+
+/* Inserts a record into the SWRIDEN table*/
+--desc swriden;
+declare
+lv_pidm  swriden.swriden_pidm%type;
+lv_id    swriden.swriden_id%type:='123'; 
+lv_last_name swriden.swriden_last_name%type:='abrams';
+lv_first_name swriden.swriden_first_name%type:='jennifer';
+lv_activity_date swriden.swriden_activity_date%type;
+
+begin
+  insert into swriden values(&lv_pidm,lv_id,lv_last_name,lv_first_name,null,null,sysdate,null,null);
+
+end;
+/
+select * from swriden;
